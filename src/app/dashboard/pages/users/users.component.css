@@ -1,0 +1,18 @@
+.btn-custom {
+  background-color: #007bff;
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+}
+.btn-custom:hover {
+  background-color: #0069d9;
+}
+
+.table-container {
+  background-color: #fbfbfb;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

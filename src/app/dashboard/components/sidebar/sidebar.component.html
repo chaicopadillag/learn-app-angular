@@ -1,0 +1,16 @@
+<div class="d-flex p-3">
+  <fa-icon [icon]="logo" class="me-2 fs-5"></fa-icon>
+  <span class="fs-5">Learn App</span>
+</div>
+<hr class="bg-light">
+<ul class="nav flex-column">
+  @for (item of menutItems; track $index) {
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="item.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+      <fa-icon [icon]="item.icon" class="me-2"></fa-icon>
+      {{item.title}}
+    </a>
+  </li>
+  }
+
+</ul>

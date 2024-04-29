@@ -1,0 +1,37 @@
+<div class="modal modal-lg fadeIn show modal-back" [ngStyle]="{ 'display': showModal ? 'block' : 'none' }">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Asignar Cursos a Estudiante</h5>
+        <button (click)="closeModal()" type="button" class="btn-close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="p-2">
+          <div class="mb-3">
+            <label for="userId" class="form-label">Estudiante</label>
+            <input type="text" class="form-control" disabled [value]="fullNameUser">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Cursos</label>
+            <div class="course-container row">
+              @for (item of checkboxItems; track $index) {
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="form-check">
+                  <input [id]="item.id" [(ngModel)]="item.selected" class="form-check-input" type="checkbox">
+                  <label class="form-check-label" [for]="item.id">
+                    {{item.name}}
+                  </label>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">Asignar Cursos</button>
+      </div>
+    </div>
+  </div>
+</div>

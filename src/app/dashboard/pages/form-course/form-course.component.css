@@ -1,0 +1,12 @@
+.form-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+}
+
+.close-btn {
+  display: inline-flex;
+  cursor: pointer;
+  text-decoration: none;
+}

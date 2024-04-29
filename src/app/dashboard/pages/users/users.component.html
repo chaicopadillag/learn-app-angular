@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-md-12">
+      <div class="table-container">
+        <div class="d-flex row">
+          <h2 class="h4 col">Lista de {{role=='student'?'estudiantes':'profesores'}}</h2>
+          <div class="col d-inline-flex justify-content-end">
+            <div class="select-role me-2">
+              <select class="form-select" [(ngModel)]="role" (ngModelChange)="onchangeRole($event)">
+                <option value="student">Estudiante</option>
+                <option value="teacher">Profesor</option>
+              </select>
+            </div>
+            <button routerLink="/dashboard/users/create" type="button" class="btn btn-primary btn-inline-block ">Crear usuario</button>
+          </div>
+        </div>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>N°</th>
+              <th>Nombre y apellidos</th>
+              <th>Correo Electrónico</th>
+              <th>Edad</th>
+              <th>Cédula</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (user of users; track $index) {
+            <tr>
+              <th scope="row">{{$index+1}}</th>
+              <td>
+                <a [routerLink]="['/dashboard/users', user.id, 'show']" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{user.name}} {{user.lastName}}</a>
+              </td>
+              <td>{{user.email}}</td>
+              <td>{{user.age}}</td>
+              <td>{{user.idCard}}</td>
+              <td>
+                <a [routerLink]="['/dashboard/users', user.id]" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Editar</a>
+                <button (click)="deleteUser(user.id)" type="button" class="btn link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover ms-2">Eliminar</button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

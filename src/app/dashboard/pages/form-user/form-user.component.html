@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="form-container">
+        <h2 class="mb-4 text-center h4">{{titleForm}}</h2>
+        <form [class]="form.valid? 'was-validated':''" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" [class]="isValid('name')?'form-control  is-invalid':'form-control'" id="name" formControlName="name">
+              <div class="invalid-feedback">
+                {{getError('name')}}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Apellido</label>
+              <input type="text" [class]="isValid('lastName')?'form-control  is-invalid':'form-control'" id="lastName" formControlName="lastName">
+              <div class="invalid-feedback">
+                {{getError('lastName')}}
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" [class]="isValid('email')?'form-control  is-invalid':'form-control'" id="email" formControlName="email">
+              <div class="invalid-feedback">
+                {{getError('email')}}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="age" class="form-label">Edad</label>
+              <input type="number" [class]="isValid('age')?'form-control  is-invalid':'form-control'" id="age" formControlName="age">
+              <div class="invalid-feedback">
+                {{getError('age')}}
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="idCard" class="form-label">Cédula o ID</label>
+              <input type="text" [class]="isValid('idCard')?'form-control  is-invalid':'form-control'" id="idCard" formControlName="idCard">
+              <div class="invalid-feedback">
+                {{getError('idCard')}}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="role" class="form-label">Rol</label>
+              <select [class]="isValid('role')?'form-select is-invalid':'form-select'" id="role" formControlName="role">
+                <option value="">--Seleccione--</option>
+                <option value="student">Estudiante</option>
+                <option value="admin">Administrador</option>
+                <option value="teacher">Profesor</option>
+              </select>
+              <div class="invalid-feedback">
+                {{getError('role')}}
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" [class]="isValid('password')?'form-control  is-invalid':'form-control'" id="password" formControlName="password">
+              <div class="invalid-feedback">
+                {{getError('password')}}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="passwordConfirmation" class="form-label">Confirmar Contraseña</label>
+              <input type="password" [class]="isValid('passwordConfirmation')?'form-control  is-invalid':'form-control'" id="passwordConfirmation" formControlName="passwordConfirmation">
+              <div class="invalid-feedback">
+                {{getError('passwordConfirmation')}}
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="submit" [disabled]="isPosting" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
